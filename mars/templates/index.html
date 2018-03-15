@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fotos de Marte</title>
+	<link rel="stylesheet" type="text/css" href="static/style1.css">
+</head>
+<body>
+	<div>
+		<header>
+			<div class="logo">
+				<img src="../static/img/logo.jpg" class="marte">
+				<img src="../static/img/titulo.png">
+			</div>
+		</header>
+	</div>
+	<div class="contenido">
+		<form action="/mandar_correo" method="post">
+			<h1>Ingresa el correo</h2>
+			<p><input type="text" name="correo"></p>
+			<h2>Ingresa un mensaje</h2>
+			<p><input type="text" name="mensaje"></p>
+			<h2>Ingresa la fecha de la foto que deseas enviar (yyyy-mm-dd) </h2>
+			<p><input type="text" name="fecha"></p>
+			<input type="submit" name="enviar" value="Enviar" class="boton">
+			{% with mensajes = get_flashed_messages() %}
+        {% if mensajes %}
+        <ul>
+            {% for mensaje in mensajes %}
+            <li>{{ mensaje }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+		</form>
+	</div>
+</body>
+</html>
